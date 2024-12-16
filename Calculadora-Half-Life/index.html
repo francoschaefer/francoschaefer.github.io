@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="author" content="franco schaefer">
+    <meta name="robots" content="noarchive">
+    <meta name="keywords" content="half life, half life 2, hl, hl2, gordon freeman">
+    <meta name="description" content="Esta es la calculadora que usaron los cientificos para sus experimentos en Black Mesa">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="Half-Life_lambda_logo.svg.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+    <title>Calculadora</title>
+</head>
+<body>
+    <div class="card">
+        <img class="card_img" src="Half-Life_lambda_logo.svg.png" alt="">
+        <h1 class="title">CALCULADORA HALF LIFE</h1>
+        <h2 class="subtitle">LA CALCULADORA QUE USA GORDON FREEMAN</h2>
+        <div class="card_content">
+            <input type="text" id="a" oninput="validarNumero()">
+            <select id="opcion">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">x</option>
+                <option value="/">/</option>
+            </select>
+            <input type="text" id="b" oninput="validarNumero()">
+            <button onclick="calcular()">Calcular</button>
+            <div id="resultado"></div>
+        </div>
+    </div>
+    <script>
+        function validarNumero() {
+            let inputA = document.getElementById("a");
+            let inputB = document.getElementById("b");
+            inputA.value = inputA.value.replace(/[^0-9.]/g, '');
+            inputB.value = inputB.value.replace(/[^0-9.]/g, '');
+        }
+        function calcular(){
+            let n1 = parseFloat(document.getElementById("a").value);
+            let n2 = parseFloat(document.getElementById("b").value);
+            let opc = document.getElementById("opcion").value;
+            let r = 0;
+            switch(opc){
+            case "+":
+            r = n1 + n2;
+            break;
+            case "-":
+            r = n1 - n2;
+            break;
+            case "*":
+            r = n1 * n2;
+            break;
+            case "/":
+            r = n1 / n2;
+            break;
+            }
+            document.getElementById("resultado").textContent = r;
+        }
+    </script>
+</body>
+</html>
